@@ -2,24 +2,19 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: result
-
+  namespace: voting-app
 spec:
-  replicas: 2
-
+  replicas: 1
   selector:
     matchLabels:
       app: result
-
   template:
     metadata:
       labels:
         app: result
-
     spec:
       containers:
       - name: result
-
-        image: gitopspocacr.azurecr.io/result:latest
-
+        image: shaikhaseena18/result:latest
         ports:
         - containerPort: 80
